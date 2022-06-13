@@ -1,4 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
+import { ChapterModel } from '../../models/got';
 import { actionTypes } from './action.types';
 
 export interface iActioon {
@@ -6,12 +7,16 @@ export interface iActioon {
   payload?: any;
 }
 
-export const loadGotAction = createAction(actionTypes['got@load'].toString());
+export const loadGotAction = createAction<Array<ChapterModel>>(
+  actionTypes['got@load'].toString()
+);
 
-export const addGotAction = createAction(actionTypes['got@create'].toString());
-export const modifyGotAction = createAction(
+export const addGotAction = createAction<ChapterModel>(
+  actionTypes['got@create'].toString()
+);
+export const modifyGotAction = createAction<ChapterModel>(
   actionTypes['got@modify'].toString()
 );
-export const deleteGotAction = createAction(
+export const deleteGotAction = createAction<ChapterModel>(
   actionTypes['got@delete'].toString()
 );
