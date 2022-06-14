@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { chapters } from '../../localStore/localStore';
 import { ChapterModel } from '../../models/got';
 import * as ac from './action.creators';
 

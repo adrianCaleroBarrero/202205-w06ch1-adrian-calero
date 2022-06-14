@@ -28,12 +28,12 @@ export function Form() {
     };
     api.addcharacter(newCharacter).then((resp) => {
       dispatch(ac.addGotAction(newCharacter));
-    });
-    setFormData({
-      name: '',
-      age: '',
-      family: '',
-      type: '',
+      setFormData({
+        name: '',
+        age: '',
+        family: '',
+        type: '',
+      });
     });
   }
   function handleChange(ev: SyntheticEvent) {
