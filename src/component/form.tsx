@@ -16,14 +16,14 @@ export function Form() {
     ev.preventDefault();
     console.log('Guardado' + formData);
     dispatch(
-      ac.addGotAction(
-        new ChapterModel(
+      ac.addGotAction({
+        ...new ChapterModel(
           formData.name,
           formData.age,
           formData.family,
           formData.type
-        )
-      )
+        ),
+      })
     );
   }
   function handleChange(ev: SyntheticEvent) {
@@ -82,7 +82,4 @@ export function Form() {
       <input type="submit" value="submit" />
     </form>
   );
-}
-function dispatch(arg0: any) {
-  throw new Error('Function not implemented.');
 }
