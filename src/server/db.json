@@ -1,0 +1,25 @@
+{
+  "characters": [
+    {
+      "name": "Levi",
+      "age": "3",
+      "family": "Stark",
+      "type": "",
+      "id": 10090
+    },
+    {
+      "name": "Levi",
+      "age": "3",
+      "family": "Stark",
+      "type": "",
+      "id": 18633
+    },
+    {
+      "name": "Levi",
+      "age": "3",
+      "family": "Targaryen",
+      "type": "🔪",
+      "id": 15201
+    }
+  ]
+}

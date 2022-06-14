@@ -1,15 +1,26 @@
-import { chapters } from '../localStore/localStore';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { HttpStorecharacters } from '../services/api';
+import * as ac from '../reducer/got/action.creators';
+import { iChapter } from '../models/got';
+import { Card } from './card';
 
 export function List() {
+  const characters = useSelector((state) => state as iChapter[]);
+  const api = new HttpStorecharacters();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    api.getAllcharacters().then((resp) => {
+      dispatch(ac.loadGotAction(resp));
+    });
+  }, [dispatch]);
+
   return (
     <>
       <ul>
-        {chapters.map((item) => (
-          <li key={item.id}>
-            <p>{`nombre: ${item.name} y su edad: ${item.age}`}</p>
-            <p>{`De la familia: ${item.family} y su profesion es: ${item.type}`}</p>
-          </li>
-        ))}
+        {characters.length &&
+          characters.map((character) => <Card character={character} />)}
       </ul>
     </>
   );
