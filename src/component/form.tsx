@@ -1,10 +1,14 @@
-import { SyntheticEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { SyntheticEvent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ChapterModel } from '../models/got';
 import * as ac from '../reducer/got/action.creators';
+import { HttpStorecharacters } from '../services/api';
 
 export function Form() {
+  const api = new HttpStorecharacters();
+
   const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: '',
     age: 0,
@@ -14,21 +18,20 @@ export function Form() {
 
   function handlerOnSubmit(ev: SyntheticEvent) {
     ev.preventDefault();
-    console.log('Guardado' + formData);
-    dispatch(
-      ac.addGotAction({
-        ...new ChapterModel(
-          formData.name,
-          formData.age,
-          formData.family,
-          formData.type
-        ),
-      })
-    );
+    const newCharacter = {
+      ...new ChapterModel(
+        formData.name,
+        formData.age,
+        formData.family,
+        formData.type
+      ),
+    };
+    api.addcharacter(newCharacter).then((resp) => {
+      dispatch(ac.addGotAction(newCharacter));
+    });
   }
   function handleChange(ev: SyntheticEvent) {
     const element = ev.target as HTMLFormElement;
-    console.log(element.name, element.value);
     setFormData({ ...formData, [element.name]: element.value });
   }
   return (
@@ -73,10 +76,10 @@ export function Form() {
           value={formData.type}
           onChange={(ev) => handleChange(ev)}
         >
-          <option value="Rey">👑</option>
-          <option value="Asesino">🔪</option>
-          <option value="Escudero">🛡️</option>
-          <option value="Asesor">🎓</option>
+          <option value="👑">👑</option>
+          <option value="🔪">🔪</option>
+          <option value="🛡️">🛡️</option>
+          <option value="🎓">🎓</option>
         </select>
       </label>
       <input type="submit" value="submit" />
