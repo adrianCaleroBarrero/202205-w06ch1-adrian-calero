@@ -8,15 +8,15 @@ export interface iActioon {
 }
 
 export const loadGotAction = createAction<Array<ChapterModel>>(
-  actionTypes['got@load'].toString()
+  actionTypes['got@load']
 );
 
 export const addGotAction = createAction<ChapterModel>(
-  actionTypes['got@create'].toString()
+  actionTypes['got@create']
 );
 export const modifyGotAction = createAction<ChapterModel>(
-  actionTypes['got@modify'].toString()
+  actionTypes['got@modify']
 );
 export const deleteGotAction = createAction<ChapterModel>(
-  actionTypes['got@delete'].toString()
+  actionTypes['got@delete']
 );
