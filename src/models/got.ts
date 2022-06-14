@@ -1,7 +1,7 @@
 export interface iChapter {
   id: number;
   name: string;
-  age: number;
+  age: string;
   family: string;
   type: string;
 }
@@ -13,7 +13,7 @@ export class ChapterModel implements iChapter {
   }
   constructor(
     public name: string,
-    public age: number,
+    public age: string,
     public family: string,
     public type: string
   ) {

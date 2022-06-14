@@ -1,9 +1,8 @@
-import { SyntheticEvent, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { chapters } from '../localStore/localStore';
 import { HttpStorecharacters } from '../services/api';
 import * as ac from '../reducer/got/action.creators';
-import { ChapterModel, iChapter } from '../models/got';
+import { iChapter } from '../models/got';
 import { Card } from './card';
 
 export function List() {

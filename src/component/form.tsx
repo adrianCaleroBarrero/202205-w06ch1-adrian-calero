@@ -11,7 +11,7 @@ export function Form() {
 
   const [formData, setFormData] = useState({
     name: '',
-    age: 0,
+    age: '',
     family: '',
     type: '',
   });
@@ -28,6 +28,12 @@ export function Form() {
     };
     api.addcharacter(newCharacter).then((resp) => {
       dispatch(ac.addGotAction(newCharacter));
+    });
+    setFormData({
+      name: '',
+      age: '',
+      family: '',
+      type: '',
     });
   }
   function handleChange(ev: SyntheticEvent) {

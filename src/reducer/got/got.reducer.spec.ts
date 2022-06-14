@@ -6,7 +6,7 @@ describe('Given the function gotReducer', () => {
   const mockreducer: ChapterModel = {
     id: 1,
     name: 'pepe',
-    age: 30,
+    age: '30',
     family: 'Lannister',
     type: '🔪',
   };
